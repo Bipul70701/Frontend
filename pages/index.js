@@ -46,8 +46,8 @@ const HomeContent = () => {
   const handlePayment = async () => {
     try {
       setPaymentInitiated(true);
-      await axios.post('http://localhost:5000/api/payment', { amount: 299, currency: 'INR' });
-      const { data } = await axios.post('http://localhost:5000/api/process');
+      await axios.post('${process.env.NEXT_PUBLIC_API_URL}/api/payment', { amount: 299, currency: 'INR' });
+      const { data } = await axios.post('${process.env.NEXT_PUBLIC_API_URL}/api/process');
       setRealResults(data);
       setShowDemo(false);
     } catch (error) {
